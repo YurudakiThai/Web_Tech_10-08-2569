@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work for web 10-08-2569</title>
+  <script src="file_javascript/algo_form.js" defer></script>
+</head>
+
+<body>
+  <form id="main_from">
+    <h1>รายรับราบจ่าย ส่วนบุคคล</h1>
+    <label for="name">ชื่อของรายการ</label>
+    <input id="name" type="text" name="name" required max="100">
+    <br> <br>
+    <label for="amout">จํานวนเงินทั้งหมด</label>
+    <input id="amout" type="number" name="amout">
+    <br> <br>
+    <label for="dates">วันที่</label>
+    <input id="dates" type="date" name="dates">
+    <br> <br>
+    <label for="times">เวลา</label>
+    <input id="times" type="time" name="times">
+    <br> <br>
+    <label for="InOrEx">ประเภท:</label>
+
+    <input id="InOrEx1" type="radio" name="InOrEx" value="">
+    <label for="InOrEx">รายรับ</label>
+    <input type="radio" name="InOrEx" value="">
+    <label id="InOrEx2" for="InOrEx">รายจ่าย</label>
+    <br><br>
+    <input type="submit" name="" value="ยืนยัน">
+    <input type="reset" name="" value="ยกเลิก">
+
+  </form>
+
+  <div>
+    <ul id="IncomeList">
+
+    </ul>
+    <p id="totalIncome"></p>
+  </div>
+  <div>
+    <ul id="ExprensesList">
+
+    </ul>
+    <p id="TotalExpensesิ"> </p>
+  </div>
+  <p id="amoutIncome"></p>
+</body>
+
+</html>
