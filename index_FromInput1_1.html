@@ -3,65 +3,58 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Work for web 10-08-2569</title>
-  <script src="file_javascript/algo_form.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบบันทึกรายรับ – รายจ่าย</title>
+  <!-- UnoCSS Runtime สำหรับใช้ Utility Classes ได้เลยโดยไม่ต้อง Config -->
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+    }
+  </style>
 </head>
 
 <body>
-  <form id="transactionForm">
-    <h1>รายรับราบจ่าย ส่วนบุคคล</h1>
-    <label for="name">ชื่อของรายการ</label>
-    <input id="name" type="text" name="name" maxlength="50" required>
-    <br> <br>
-    <label for="amount">จํานวนเงินทั้งหมด (บาท)</label>
-    <input id="amount" type="number" name="amount" required min="0.01" step="0.01">
-    <br> <br>
-    <label for="date">วันที่</label>
-    <input id="date" type="date" name="date" required>
-    <br> <br>
-    <label for="time">เวลา</label>
-    <input id="time" type="time" name="time" required>
-    <br> <br>
-    <fieldset>
-      <legend>ประเภท:</legend>
 
-      <input type="radio" name="InOrEx" value="income">
-      รายรับ
-
-      <input type="radio" name="InOrEx" value="expense">
-      รายจ่าย
-    </fieldset>
-    <br> <br>
-    <input type="submit" value="เพิ่มรายการ">
-    <input type="reset" value="ยกเลิก">
-  </form>
-
-
-  <p>ส่วนที่ใช้แสดงผลรายรับรายทั้งหมด</p>
   <div>
-    <ul id="IncomeList">
-      <li></li>
-      <li></li>
-      <li></li>
+    <h1>ระบบบันทึกรายรับ – รายจ่าย</h1>
+
+    <!-- ส่วนที่ 1.1: ฟอร์มรับข้อมูล -->
+    <form id="transactionForm">
+      <input type="text" id="title" placeholder="ชื่อรายการ" required maxlength="50">
+      <input type="number" id="amount" placeholder="จำนวนเงิน" required min="1" step="0.01">
+      <select id="type" required>
+        <option value="income">รายรับ</option>
+        <option value="expense">รายจ่าย</option>
+      </select>
+      <input type="date" id="date" required>
+      <input type="time" id="time" required>
+      <button type="submit">+ เพิ่มรายการ</button>
+    </form>
+
+    <!-- ส่วนที่ 1.2: สรุปยอดเงิน -->
+    <div>
+      <div>
+        <p>รายรับรวม</p>
+        <p id="totalIncome">0</p>
+      </div>
+      <div>
+        <p>รายจ่ายรวม</p>
+        <p id="totalExpense">0</p>
+      </div>
+      <div>
+        <p>ยอดคงเหลือ</p>
+        <p id="balance">0</p>
+      </div>
+    </div>
+
+    <!-- ส่วนที่ 1.3: พื้นที่แสดงรายการ (List) -->
+    <h2>รายการทั้งหมด</h2>
+    <ul id="transactionList">
+      <!-- รายการจะถูกสร้างด้วย JavaScript -->
     </ul>
-    <p id="totalIncome"></p>
   </div>
-  <div>
-    <ul id="ExprensesList">
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <p id="totalExpensesิ"> </p>
-  </div>
-  <p id="balance"></p>
-  <section>
-    <p>รายรับรวม: <strong id="totalIncome">0.00 บาท</strong></p>
-    <p>รายจ่ายรวม: <strong id="totalExpenses">0.00 บาท</strong></p>
-    <p>ยอดคงเหลือ: <strong id="balance"> 0.00 บาท</strong></p>
-    <p id="balanceWarning"></p>
-  </section>
+
+  <script src="file_javascript/algo_form.js"></script>
 </body>
 
 </html>
