@@ -9,45 +9,59 @@
 </head>
 
 <body>
-  <form id="main_from">
+  <form id="transactionForm">
     <h1>รายรับราบจ่าย ส่วนบุคคล</h1>
     <label for="name">ชื่อของรายการ</label>
-    <input id="name" type="text" name="name" required max="100">
+    <input id="name" type="text" name="name" maxlength="50" required>
     <br> <br>
-    <label for="amout">จํานวนเงินทั้งหมด</label>
-    <input id="amout" type="number" name="amout" required min="0">
+    <label for="amount">จํานวนเงินทั้งหมด (บาท)</label>
+    <input id="amount" type="number" name="amount" required min="0.01" step="0.01">
     <br> <br>
-    <label for="dates">วันที่</label>
-    <input id="dates" type="date" name="dates">
+    <label for="date">วันที่</label>
+    <input id="date" type="date" name="date" required>
     <br> <br>
-    <label for="times">เวลา</label>
-    <input id="times" type="time" name="times">
+    <label for="time">เวลา</label>
+    <input id="time" type="time" name="time" required>
     <br> <br>
-    <label for="InOrEx">ประเภท:</label>
+    <fieldset>
+      <legend>ประเภท:</legend>
 
-    <input id="InOrEx1" type="radio" name="InOrEx" value="">
-    <label for="InOrEx">รายรับ</label>
-    <input type="radio" name="InOrEx" value="">
-    <label id="InOrEx2" for="InOrEx">รายจ่าย</label>
-    <br><br>
-    <input type="submit" name="" value="ยืนยัน">
-    <input type="reset" name="" value="ยกเลิก">
+      <input type="radio" name="InOrEx" value="income">
+      รายรับ
 
+      <input type="radio" name="InOrEx" value="expense">
+      รายจ่าย
+    </fieldset>
+    <br> <br>
+    <input type="submit" value="เพิ่มรายการ">
+    <input type="reset" value="ยกเลิก">
   </form>
 
+
+  <p>ส่วนที่ใช้แสดงผลรายรับรายทั้งหมด</p>
   <div>
     <ul id="IncomeList">
-
+      <li></li>
+      <li></li>
+      <li></li>
     </ul>
     <p id="totalIncome"></p>
   </div>
   <div>
     <ul id="ExprensesList">
-
+      <li></li>
+      <li></li>
+      <li></li>
     </ul>
-    <p id="TotalExpensesิ"> </p>
+    <p id="totalExpensesิ"> </p>
   </div>
-  <p id="amoutIncome"></p>
+  <p id="balance"></p>
+  <section>
+    <p>รายรับรวม: <strong id="totalIncome">0.00 บาท</strong></p>
+    <p>รายจ่ายรวม: <strong id="totalExpenses">0.00 บาท</strong></p>
+    <p>ยอดคงเหลือ: <strong id="balance"> 0.00 บาท</strong></p>
+    <p id="balanceWarning"></p>
+  </section>
 </body>
 
 </html>
