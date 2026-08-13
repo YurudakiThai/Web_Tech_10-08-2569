@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ระบบบันทึกรายรับ–รายจ่าย</title>
-  <script src="algo_form.js" defer></script>
 </head>
 
 <body>
@@ -21,10 +20,10 @@
       <input id="amount" type="number" min="0.01" step="0.01" required>
 
       <label for="date">วันที่</label>
-      <input id="date" type="date" required>
+      <input id="date" type="date">
 
       <label for="time">เวลา</label>
-      <input id="time" type="time" required>
+      <input id="time" type="time">
 
       <label for="type">ประเภทรายการ</label>
       <select id="type" required>
@@ -53,9 +52,24 @@
       <option value="expense">เฉพาะรายจ่าย</option>
     </select>
 
-    <ul id="transactionList"></ul>
+    <table border="1" cellpadding="8" cellspacing="0" width="100%">
+      <caption>ตารางบันทึกรายรับและรายจ่าย</caption>
+      <thead>
+        <tr>
+          <th scope="col">ลำดับ</th>
+          <th scope="col">รายการ</th>
+          <th scope="col">จำนวนเงิน</th>
+          <th scope="col">วันที่</th>
+          <th scope="col">เวลา</th>
+          <th scope="col">ประเภท</th>
+          <th scope="col">จัดการ</th>
+        </tr>
+      </thead>
+      <tbody id="transactionList"></tbody>
+    </table>
   </section>
 
+  <script src="budget-app.js"></script>
 </body>
 
 </html>
