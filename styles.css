@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: Arial, "Noto Sans Thai", sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+  background: #f3f4f6;
+}
+
+h1 {
+  margin: 0 0 24px;
+  color: #1d4ed8;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 0;
+  color: #374151;
+}
+
+section {
+  max-width: 850px;
+  margin: 0 auto 20px;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+form {
+  display: grid;
+  gap: 10px;
+}
+
+label {
+  margin-top: 4px;
+  font-weight: bold;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  min-height: 40px;
+  padding: 8px 10px;
+  font: inherit;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #93c5fd;
+  border-color: #2563eb;
+}
+
+button {
+  margin-top: 8px;
+  color: #ffffff;
+  background: #2563eb;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+#searchInput,
+#filterType {
+  width: calc(50% - 6px);
+  margin-right: 8px;
+}
+
+#incomeTotal {
+  color: #15803d;
+  font-weight: bold;
+}
+
+#expenseTotal {
+  color: #b91c1c;
+  font-weight: bold;
+}
+
+#balance {
+  color: #1d4ed8;
+  font-weight: bold;
+}
+
+#transactionList {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#transactionList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 12px;
+  background: #f8fafc;
+  border-left: 5px solid #64748b;
+  border-radius: 6px;
+}
+
+#transactionList li button {
+  width: auto;
+  min-width: 56px;
+  margin: 0;
+  padding: 5px 10px;
+  background: #dc2626;
+}
+
+#transactionList li button:hover {
+  background: #b91c1c;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+  }
+
+  section {
+    padding: 16px;
+  }
+
+  #searchInput,
+  #filterType {
+    width: 100%;
+    margin: 0 0 8px;
+  }
+
+  #transactionList li {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
