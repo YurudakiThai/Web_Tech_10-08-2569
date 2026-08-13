@@ -1,5 +1,4 @@
-
-// ตกแต่งหน้าเว็บด้วย JavaScript โดยสร้าง CSS แบบฝังในเอกสารอัตโนมัติ
+/ ตกแต่งหน้าเว็บด้วย JavaScript โดยสร้าง CSS แบบฝังในเอกสารอัตโนมัติ
 const style = document.createElement("style");
 style.textContent = `
   * { box-sizing: border-box; }
