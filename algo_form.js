@@ -1,4 +1,4 @@
-/ ตกแต่งหน้าเว็บด้วย JavaScript โดยสร้าง CSS แบบฝังในเอกสารอัตโนมัติ
+// ตกแต่งหน้าเว็บด้วย JavaScript โดยสร้าง CSS แบบฝังในเอกสารอัตโนมัติ
 const style = document.createElement("style");
 style.textContent = `
   * { box-sizing: border-box; }
@@ -186,7 +186,6 @@ form.addEventListener("submit", function (event) {
   transactions.push(transaction);
   refreshUI();
   form.reset();
-  setDefaultDateTime();
 });
 
 // แสดงรายการทั้งหมดบนหน้าเว็บ
@@ -208,7 +207,7 @@ function renderTransactions() {
 
     listItem.textContent =
       `${transaction.title} | ${formatMoney(transaction.amount)} บาท | ` +
-      `${typeText} | ${transaction.date} ${transaction.time}`;
+      `${typeText} | ${formatDateTime(transaction)}`;
 
     const deleteButton = document.createElement("button");
     deleteButton.type = "button";
@@ -257,11 +256,11 @@ function refreshUI() {
   updateSummary();
 }
 
-function setDefaultDateTime() {
-  const now = new Date();
-  dateInput.value = now.toISOString().slice(0, 10);
-  timeInput.value = now.toTimeString().slice(0, 5);
+function formatDateTime(transaction) {
+  const date = transaction.date || "ไม่ระบุวันที่";
+  const time = transaction.time || "ไม่ระบุเวลา";
+  return `${date} ${time}`;
 }
 
-setDefaultDateTime();
 refreshUI();
+
