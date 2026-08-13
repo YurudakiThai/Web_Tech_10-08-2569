@@ -4,76 +4,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ระบบบันทึกรายรับ – รายจ่าย</title>
-  <!-- UnoCSS Runtime สำหรับใช้ Utility Classes ได้เลยโดยไม่ต้อง Config -->
-  <style>
-    body {
-      font-family: 'Sarabun', sans-serif;
-    }
-  </style>
+  <title>ระบบบันทึกรายรับ–รายจ่าย</title>
 </head>
 
 <body>
+  <h1>ระบบบันทึกรายรับ–รายจ่าย</h1>
 
-  <div>
-    <h1>ระบบบันทึกรายรับ – รายจ่าย</h1>
-
-    <!-- ส่วนที่ 1.1: ฟอร์มรับข้อมูล -->
+  <section>
+    <h2>เพิ่มรายการ</h2>
     <form id="transactionForm">
+      <label for="title">ชื่อรายการ</label>
+      <input id="title" type="text" required>
 
-      <label for="title">
-        ชื่อรายการ :
-        <input type="text" id="title" placeholder="ชื่อรายการ" required maxlength="50">
-      </label>
-      <br>
-      <label for="amount">
-        จํานวนเงิน :
-        <input type="number" id="amount" placeholder="จำนวนเงิน" required min="1" step="0.01">
-      </label>
-      <br>
-      <label for="type">
-        เลือกประเภท :
-        <select id="type" required>
-          <option value="income">รายรับ</option>
-          <option value="expense">รายจ่าย</option>
-        </select>
-      </label>
-      <br>
-      <label for="date">
-        วัน/เดือน/ปี :
-        <input type="date" id="date" required>
-      </label>
-      <br>
-      <label for="time">
-        เวลา :
-        <input type="time" id="time" required>
-      </label>
-      <br>
-      <button type="submit">+ เพิ่มรายการ</button>
+      <label for="amount">จำนวนเงิน (บาท)</label>
+      <input id="amount" type="number" min="0.01" step="0.01" required>
+
+      <label for="date">วันที่</label>
+      <input id="date" type="date" required>
+
+      <label for="time">เวลา</label>
+      <input id="time" type="time" required>
+
+      <label for="type">ประเภทรายการ</label>
+      <select id="type" required>
+        <option value="income">รายรับ</option>
+        <option value="expense">รายจ่าย</option>
+      </select>
+
+      <button type="submit">เพิ่มรายการ</button>
     </form>
+  </section>
 
-    <!-- ส่วนที่ 1.2: สรุปยอดเงิน -->
-    <div>
-      <div>
-        <p>รายรับรวม</p>
-        <p id="totalIncome">0</p>
-      </div>
-      <div>
-        <p>รายจ่ายรวม</p>
-        <p id="totalExpense">0</p>
-      </div>
-      <div>
-        <p>ยอดคงเหลือ</p>
-        <p id="balance">0</p>
-      </div>
-    </div>
+  <section>
+    <h2>สรุปยอดเงิน</h2>
+    <p>รายรับรวม: <span id="incomeTotal">0.00</span> บาท</p>
+    <p>รายจ่ายรวม: <span id="expenseTotal">0.00</span> บาท</p>
+    <p>ยอดคงเหลือ: <span id="balance">0.00</span> บาท</p>
+  </section>
 
-    <!-- ส่วนที่ 1.3: พื้นที่แสดงรายการ (List) -->
+  <section>
     <h2>รายการทั้งหมด</h2>
-    <ul id="transactionList">
-      <!-- รายการจะถูกสร้างด้วย JavaScript -->
-    </ul>
-  </div>
+    <input id="searchInput" type="search" placeholder="ค้นหาจากชื่อรายการ">
+
+    <select id="filterType">
+      <option value="all">แสดงทั้งหมด</option>
+      <option value="income">เฉพาะรายรับ</option>
+      <option value="expense">เฉพาะรายจ่าย</option>
+    </select>
+
+    <ul id="transactionList"></ul>
+  </section>
 
   <script src="file_javascript/algo_form.js"></script>
 </body>
